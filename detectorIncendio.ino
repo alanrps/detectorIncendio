@@ -41,10 +41,20 @@ void loop() {
   float valorUmidade = dht.readHumidity();
   float valorTemperatura = dht.readTemperature();
 
+  Serial.print("Valor Sensor Gas: ");
   Serial.println(valorGas);
   
+  Serial.print("Valor Sensor Chama: ");
   Serial.println(valorChama);
+  
+  Serial.print("Valor Sensor Umidade: ");
+  Serial.println(valorUmidade);
+  
+  Serial.print("Valor Sensor Temperatura: ");
+  Serial.println(valorTemperatura);
 
+  Serial.println("----------------------------");
+  
   if(valorGas > 400 || valorChama == 0){
     tone(buzzerPin,1000);
   }
@@ -75,7 +85,6 @@ void loop() {
     client.print(postStr);
   }
   client.stop(); 
-  Serial.println("Waiting 20 secs");
   
   delay(10000);
 }
