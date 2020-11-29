@@ -37,7 +37,7 @@ void setup(){
  
 void loop() {
   int valorGas = analogRead(gasPin);
-  int valorChama = digitalRead(chamaPin);
+  int valorChama = !(digitalRead(chamaPin));
   float valorUmidade = dht.readHumidity();
   float valorTemperatura = dht.readTemperature();
 
@@ -55,7 +55,7 @@ void loop() {
 
   Serial.println("----------------------------");
   
-  if(valorGas > 400 || valorChama == 0){
+  if(valorGas > 400 || valorChama == 1){
     tone(buzzerPin,1000);
   }
   else
